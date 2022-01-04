@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SMSModelStoreContainer" CdmEntityContainer="SMSEntities5">
+    <EntitySetMapping Name="Admin1">
+      <EntityTypeMapping TypeName="SMSModel.Admin1">
+        <MappingFragment StoreEntitySet="Admin1">
+          <ScalarProperty Name="A_id" ColumnName="A_id" />
+          <ScalarProperty Name="A_Name" ColumnName="A_Name" />
+          <ScalarProperty Name="A_Password" ColumnName="A_Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="attendances">
+      <EntityTypeMapping TypeName="SMSModel.attendance">
+        <MappingFragment StoreEntitySet="attendance">
+          <ScalarProperty Name="A_id" ColumnName="A_id" />
+          <ScalarProperty Name="C_id" ColumnName="C_id" />
+          <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
+          <ScalarProperty Name="Attendance1" ColumnName="Attendance" />
+          <ScalarProperty Name="R_id" ColumnName="R_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="batches">
+      <EntityTypeMapping TypeName="SMSModel.batch">
+        <MappingFragment StoreEntitySet="batch">
+          <ScalarProperty Name="B_id" ColumnName="B_id" />
+          <ScalarProperty Name="batch1" ColumnName="batch" />
+          <ScalarProperty Name="year" ColumnName="year" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="courses">
+      <EntityTypeMapping TypeName="SMSModel.course">
+        <MappingFragment StoreEntitySet="course">
+          <ScalarProperty Name="C_id" ColumnName="C_id" />
+          <ScalarProperty Name="couse" ColumnName="couse" />
+          <ScalarProperty Name="duaraion" ColumnName="duaraion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="registerations">
+      <EntityTypeMapping TypeName="SMSModel.registeration">
+        <MappingFragment StoreEntitySet="registeration">
+          <ScalarProperty Name="R_id" ColumnName="R_id" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="nic" ColumnName="nic" />
+          <ScalarProperty Name="course_id" ColumnName="course_id" />
+          <ScalarProperty Name="batch_id" ColumnName="batch_id" />
+          <ScalarProperty Name="Mob_no" ColumnName="Mob_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teachers">
+      <EntityTypeMapping TypeName="SMSModel.teacher">
+        <MappingFragment StoreEntitySet="teacher">
+          <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
+          <ScalarProperty Name="teacher_name" ColumnName="teacher_name" />
+          <ScalarProperty Name="teacher_Contact" ColumnName="teacher_Contact" />
+          <ScalarProperty Name="teacher_Email" ColumnName="teacher_Email" />
+          <ScalarProperty Name="C_id" ColumnName="C_id" />
+          <ScalarProperty Name="teacher_password" ColumnName="teacher_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teacher_course">
+      <EntityTypeMapping TypeName="SMSModel.teacher_course">
+        <MappingFragment StoreEntitySet="teacher_course">
+          <ScalarProperty Name="t_c_id" ColumnName="t_c_id" />
+          <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
+          <ScalarProperty Name="C_id" ColumnName="C_id" />
+          <ScalarProperty Name="R_id" ColumnName="R_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teacher_student">
+      <EntityTypeMapping TypeName="SMSModel.teacher_student">
+        <MappingFragment StoreEntitySet="teacher_student">
+          <ScalarProperty Name="t_s_id" ColumnName="t_s_id" />
+          <ScalarProperty Name="t_c_id" ColumnName="t_c_id" />
+          <ScalarProperty Name="C_id" ColumnName="C_id" />
+          <ScalarProperty Name="R_id" ColumnName="R_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="timetables">
+      <EntityTypeMapping TypeName="SMSModel.timetable">
+        <MappingFragment StoreEntitySet="timetable">
+          <ScalarProperty Name="tt_id" ColumnName="tt_id" />
+          <ScalarProperty Name="C_id" ColumnName="C_id" />
+          <ScalarProperty Name="tt_time" ColumnName="tt_time" />
+          <ScalarProperty Name="room" ColumnName="room" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user1">
+      <EntityTypeMapping TypeName="SMSModel.user1">
+        <MappingFragment StoreEntitySet="user1">
+          <ScalarProperty Name="U_id" ColumnName="U_id" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

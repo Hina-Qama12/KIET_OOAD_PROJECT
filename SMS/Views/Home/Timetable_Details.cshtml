@@ -1,0 +1,51 @@
+﻿@model SMS.Models.timetable
+
+@{
+    ViewBag.Title = "Timetable_Details";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>DETAILS OF TIMETABLE</h2>
+
+<div>
+    <h4>timetable</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tt_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tt_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.room)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.room)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.course.couse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.course.couse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user1.firstname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user1.firstname)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.tt_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin1">
+    <Key>
+      <PropertyRef Name="A_id" />
+    </Key>
+    <Property Name="A_id" Type="int" Nullable="false" />
+    <Property Name="A_Name" Type="varchar" MaxLength="50" />
+    <Property Name="A_Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="attendance">
+    <Key>
+      <PropertyRef Name="A_id" />
+    </Key>
+    <Property Name="A_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="C_id" Type="int" />
+    <Property Name="teacher_id" Type="int" />
+    <Property Name="Attendance" Type="varchar" MaxLength="20" />
+    <Property Name="R_id" Type="int" />
+  </EntityType>
+  <EntityType Name="batch">
+    <Key>
+      <PropertyRef Name="B_id" />
+    </Key>
+    <Property Name="B_id" Type="int" Nullable="false" />
+    <Property Name="batch" Type="varchar" MaxLength="50" />
+    <Property Name="year" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="course">
+    <Key>
+      <PropertyRef Name="C_id" />
+    </Key>
+    <Property Name="C_id" Type="int" Nullable="false" />
+    <Property Name="couse" Type="varchar" MaxLength="50" />
+    <Property Name="duaraion" Type="int" />
+  </EntityType>
+  <EntityType Name="registeration">
+    <Key>
+      <PropertyRef Name="R_id" />
+    </Key>
+    <Property Name="R_id" Type="int" Nullable="false" />
+    <Property Name="firstname" Type="varchar" MaxLength="50" />
+    <Property Name="lastname" Type="varchar" MaxLength="50" />
+    <Property Name="nic" Type="varchar" MaxLength="50" />
+    <Property Name="course_id" Type="int" />
+    <Property Name="batch_id" Type="int" />
+    <Property Name="Mob_no" Type="int" />
+  </EntityType>
+  <EntityType Name="teacher">
+    <Key>
+      <PropertyRef Name="teacher_id" />
+    </Key>
+    <Property Name="teacher_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="teacher_name" Type="varchar" MaxLength="25" />
+    <Property Name="teacher_Contact" Type="int" />
+    <Property Name="teacher_Email" Type="varchar" MaxLength="30" />
+    <Property Name="C_id" Type="int" />
+    <Property Name="teacher_password" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="teacher_course">
+    <Key>
+      <PropertyRef Name="t_c_id" />
+    </Key>
+    <Property Name="t_c_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="teacher_id" Type="int" />
+    <Property Name="C_id" Type="int" />
+    <Property Name="R_id" Type="int" />
+  </EntityType>
+  <EntityType Name="teacher_student">
+    <Key>
+      <PropertyRef Name="t_s_id" />
+    </Key>
+    <Property Name="t_s_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="t_c_id" Type="int" />
+    <Property Name="C_id" Type="int" />
+    <Property Name="R_id" Type="int" />
+  </EntityType>
+  <EntityType Name="teacher_tt">
+    <Key>
+      <PropertyRef Name="t_tt_id" />
+    </Key>
+    <Property Name="t_tt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="teacher_id" Type="int" />
+  </EntityType>
+  <EntityType Name="timetable">
+    <Key>
+      <PropertyRef Name="tt_id" />
+    </Key>
+    <Property Name="tt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="C_id" Type="int" />
+    <Property Name="tt_time" Type="varchar" MaxLength="25" />
+    <Property Name="room" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="user1">
+    <Key>
+      <PropertyRef Name="U_id" />
+    </Key>
+    <Property Name="U_id" Type="int" Nullable="false" />
+    <Property Name="firstname" Type="varchar" MaxLength="50" />
+    <Property Name="lastname" Type="varchar" MaxLength="50" />
+    <Property Name="username" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__attendanc__teach__3B75D760">
+    <End Role="teacher" Type="Self.teacher" Multiplicity="0..1" />
+    <End Role="attendance" Type="Self.attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teacher">
+        <PropertyRef Name="teacher_id" />
+      </Principal>
+      <Dependent Role="attendance">
+        <PropertyRef Name="teacher_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__attendance__C_id__398D8EEE">
+    <End Role="course" Type="Self.course" Multiplicity="0..1" />
+    <End Role="attendance" Type="Self.attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="course">
+        <PropertyRef Name="C_id" />
+      </Principal>
+      <Dependent Role="attendance">
+        <PropertyRef Name="C_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__attendance__R_id__45F365D3">
+    <End Role="registeration" Type="Self.registeration" Multiplicity="0..1" />
+    <End Role="attendance" Type="Self.attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="registeration">
+        <PropertyRef Name="R_id" />
+      </Principal>
+      <Dependent Role="attendance">
+        <PropertyRef Name="R_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__teacher__C_id__35BCFE0A">
+    <End Role="course" Type="Self.course" Multiplicity="0..1" />
+    <End Role="teacher" Type="Self.teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="course">
+        <PropertyRef Name="C_id" />
+      </Principal>
+      <Dependent Role="teacher">
+        <PropertyRef Name="C_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__teacher_c__teach__3E52440B">
+    <End Role="teacher" Type="Self.teacher" Multiplicity="0..1" />
+    <End Role="teacher_course" Type="Self.teacher_course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teacher">
+        <PropertyRef Name="teacher_id" />
+      </Principal>
+      <Dependent Role="teacher_course">
+        <PropertyRef Name="teacher_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__teacher_co__C_id__3F466844">
+    <End Role="course" Type="Self.course" Multiplicity="0..1" />
+    <End Role="teacher_course" Type="Self.teacher_course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="course">
+        <PropertyRef Name="C_id" />
+      </Principal>
+      <Dependent Role="teacher_course">
+        <PropertyRef Name="C_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__teacher_co__R_id__403A8C7D">
+    <End Role="registeration" Type="Self.registeration" Multiplicity="0..1" />
+    <End Role="teacher_course" Type="Self.teacher_course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="registeration">
+        <PropertyRef Name="R_id" />
+      </Principal>
+      <Dependent Role="teacher_course">
+        <PropertyRef Name="R_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__teacher_s__t_c_i__4316F928">
+    <End Role="teacher_course" Type="Self.teacher_course" Multiplicity="0..1" />
+    <End Role="teacher_student" Type="Self.teacher_student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teacher_course">
+        <PropertyRef Name="t_c_id" />
+      </Principal>
+      <Dependent Role="teacher_student">
+        <PropertyRef Name="t_c_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__teacher_st__C_id__440B1D61">
+    <End Role="course" Type="Self.course" Multiplicity="0..1" />
+    <End Role="teacher_student" Type="Self.teacher_student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="course">
+        <PropertyRef Name="C_id" />
+      </Principal>
+      <Dependent Role="teacher_student">
+        <PropertyRef Name="C_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__teacher_st__R_id__44FF419A">
+    <End Role="registeration" Type="Self.registeration" Multiplicity="0..1" />
+    <End Role="teacher_student" Type="Self.teacher_student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="registeration">
+        <PropertyRef Name="R_id" />
+      </Principal>
+      <Dependent Role="teacher_student">
+        <PropertyRef Name="R_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__teacher_t__teach__48CFD27E">
+    <End Role="teacher" Type="Self.teacher" Multiplicity="0..1" />
+    <End Role="teacher_tt" Type="Self.teacher_tt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teacher">
+        <PropertyRef Name="teacher_id" />
+      </Principal>
+      <Dependent Role="teacher_tt">
+        <PropertyRef Name="teacher_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__timetable__C_id__31EC6D26">
+    <End Role="course" Type="Self.course" Multiplicity="0..1" />
+    <End Role="timetable" Type="Self.timetable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="course">
+        <PropertyRef Name="C_id" />
+      </Principal>
+      <Dependent Role="timetable">
+        <PropertyRef Name="C_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_registeration_batch">
+    <End Role="batch" Type="Self.batch" Multiplicity="0..1" />
+    <End Role="registeration" Type="Self.registeration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="batch">
+        <PropertyRef Name="B_id" />
+      </Principal>
+      <Dependent Role="registeration">
+        <PropertyRef Name="batch_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_registeration_course">
+    <End Role="course" Type="Self.course" Multiplicity="0..1" />
+    <End Role="registeration" Type="Self.registeration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="course">
+        <PropertyRef Name="C_id" />
+      </Principal>
+      <Dependent Role="registeration">
+        <PropertyRef Name="course_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SMSModelStoreContainer">
+    <EntitySet Name="Admin1" EntityType="Self.Admin1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="attendance" EntityType="Self.attendance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="batch" EntityType="Self.batch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="course" EntityType="Self.course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="registeration" EntityType="Self.registeration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="teacher" EntityType="Self.teacher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="teacher_course" EntityType="Self.teacher_course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="teacher_student" EntityType="Self.teacher_student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="teacher_tt" EntityType="Self.teacher_tt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="timetable" EntityType="Self.timetable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user1" EntityType="Self.user1" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__attendanc__teach__3B75D760" Association="Self.FK__attendanc__teach__3B75D760">
+      <End Role="teacher" EntitySet="teacher" />
+      <End Role="attendance" EntitySet="attendance" />
+    </AssociationSet>
+    <AssociationSet Name="FK__attendance__C_id__398D8EEE" Association="Self.FK__attendance__C_id__398D8EEE">
+      <End Role="course" EntitySet="course" />
+      <End Role="attendance" EntitySet="attendance" />
+    </AssociationSet>
+    <AssociationSet Name="FK__attendance__R_id__45F365D3" Association="Self.FK__attendance__R_id__45F365D3">
+      <End Role="registeration" EntitySet="registeration" />
+      <End Role="attendance" EntitySet="attendance" />
+    </AssociationSet>
+    <AssociationSet Name="FK__teacher__C_id__35BCFE0A" Association="Self.FK__teacher__C_id__35BCFE0A">
+      <End Role="course" EntitySet="course" />
+      <End Role="teacher" EntitySet="teacher" />
+    </AssociationSet>
+    <AssociationSet Name="FK__teacher_c__teach__3E52440B" Association="Self.FK__teacher_c__teach__3E52440B">
+      <End Role="teacher" EntitySet="teacher" />
+      <End Role="teacher_course" EntitySet="teacher_course" />
+    </AssociationSet>
+    <AssociationSet Name="FK__teacher_co__C_id__3F466844" Association="Self.FK__teacher_co__C_id__3F466844">
+      <End Role="course" EntitySet="course" />
+      <End Role="teacher_course" EntitySet="teacher_course" />
+    </AssociationSet>
+    <AssociationSet Name="FK__teacher_co__R_id__403A8C7D" Association="Self.FK__teacher_co__R_id__403A8C7D">
+      <End Role="registeration" EntitySet="registeration" />
+      <End Role="teacher_course" EntitySet="teacher_course" />
+    </AssociationSet>
+    <AssociationSet Name="FK__teacher_s__t_c_i__4316F928" Association="Self.FK__teacher_s__t_c_i__4316F928">
+      <End Role="teacher_course" EntitySet="teacher_course" />
+      <End Role="teacher_student" EntitySet="teacher_student" />
+    </AssociationSet>
+    <AssociationSet Name="FK__teacher_st__C_id__440B1D61" Association="Self.FK__teacher_st__C_id__440B1D61">
+      <End Role="course" EntitySet="course" />
+      <End Role="teacher_student" EntitySet="teacher_student" />
+    </AssociationSet>
+    <AssociationSet Name="FK__teacher_st__R_id__44FF419A" Association="Self.FK__teacher_st__R_id__44FF419A">
+      <End Role="registeration" EntitySet="registeration" />
+      <End Role="teacher_student" EntitySet="teacher_student" />
+    </AssociationSet>
+    <AssociationSet Name="FK__teacher_t__teach__48CFD27E" Association="Self.FK__teacher_t__teach__48CFD27E">
+      <End Role="teacher" EntitySet="teacher" />
+      <End Role="teacher_tt" EntitySet="teacher_tt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__timetable__C_id__31EC6D26" Association="Self.FK__timetable__C_id__31EC6D26">
+      <End Role="course" EntitySet="course" />
+      <End Role="timetable" EntitySet="timetable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_registeration_batch" Association="Self.FK_registeration_batch">
+      <End Role="batch" EntitySet="batch" />
+      <End Role="registeration" EntitySet="registeration" />
+    </AssociationSet>
+    <AssociationSet Name="FK_registeration_course" Association="Self.FK_registeration_course">
+      <End Role="course" EntitySet="course" />
+      <End Role="registeration" EntitySet="registeration" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,35 @@
+﻿@model SMS.Models.course
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Details of Course</h2>
+
+<div>
+    <h4>course</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.couse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.couse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.duaraion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.duaraion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.C_id }) |
+    @Html.ActionLink("Back to List", "GetCourses")
+</p>

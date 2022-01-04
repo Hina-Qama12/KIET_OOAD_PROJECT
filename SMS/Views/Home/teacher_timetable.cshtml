@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SMS.Models.timetable>
+
+@{
+    ViewBag.Title = "teacher_timetable";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<h2>Teacher Classes Schedule</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tt_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.room)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.course.couse)
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in ViewData["list"] as List<SMS.Models.timetable>)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tt_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.room)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.course.couse)
+            </td>
+           
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to Main Page", "Index3")
+</div>

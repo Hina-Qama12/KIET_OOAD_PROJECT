@@ -1,0 +1,58 @@
+﻿@model IEnumerable<SMS.Models.teacher>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.teacher_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.teacher_Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.teacher_Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.teacher_password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.course.couse)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.teacher_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.teacher_Contact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.teacher_Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.teacher_password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.course.couse)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.teacher_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.teacher_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.teacher_id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c7542001f73c4539bd631f77800955e5" Name="Diagram1">
+        <EntityTypeShape EntityType="SMSModel1.Admin1" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMSModel1.attendance" Width="1.5" PointX="5.25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMSModel1.batch" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMSModel1.course" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMSModel1.registeration" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMSModel1.student_course" Width="1.5" PointX="6" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMSModel1.teacher" Width="1.5" PointX="3" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMSModel1.teacher_course" Width="1.5" PointX="8.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMSModel1.teacher_student" Width="1.5" PointX="10.5" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMSModel1.teacher_tt" Width="1.5" PointX="5.25" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMSModel1.timetable" Width="1.5" PointX="3" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMSModel1.user1" Width="1.5" PointX="3.75" PointY="5.875" IsExpanded="true" />
+        <AssociationConnector Association="SMSModel1.FK__attendanc__teach__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="SMSModel1.FK__attendance__C_id__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="SMSModel1.FK__attendance__R_id__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="SMSModel1.FK_registeration_batch" ManuallyRouted="false" />
+        <AssociationConnector Association="SMSModel1.FK__student_co__C_id__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="SMSModel1.FK__teacher__C_id__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="SMSModel1.FK__teacher_co__C_id__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="SMSModel1.FK__teacher_st__C_id__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="SMSModel1.FK__timetable__C_id__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="SMSModel1.FK_registeration_course" ManuallyRouted="false" />
+        <AssociationConnector Association="SMSModel1.FK__teacher_co__R_id__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="SMSModel1.FK__teacher_st__R_id__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="SMSModel1.FK__student_co__U_id__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="SMSModel1.FK__teacher_c__teach__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="SMSModel1.FK__teacher_t__teach__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="SMSModel1.FK__teacher_s__t_c_i__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="SMSModel1.FK__teacher_t__tt_id__49C3F6B7" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

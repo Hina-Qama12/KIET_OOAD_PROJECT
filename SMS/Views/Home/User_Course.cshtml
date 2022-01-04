@@ -1,0 +1,44 @@
+﻿@model IEnumerable<SMS.Models.registeration>
+
+@{
+    ViewBag.Title = "My Profile";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h2>My Courses</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastname)
+        </th>
+        <th>
+            course Name
+        <th></th>
+    </tr>
+
+    @foreach (var item in ViewData["list"] as List<SMS.Models.registeration>)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.course.couse)
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to Main Page", "Index1")
+</div>
+

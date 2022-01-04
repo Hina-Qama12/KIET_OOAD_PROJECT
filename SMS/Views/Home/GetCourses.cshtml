@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SMS.Models.course>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Courses List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.couse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.duaraion)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.couse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.duaraion)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.C_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.C_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.C_id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to Main Page", "Index2")
+</div>

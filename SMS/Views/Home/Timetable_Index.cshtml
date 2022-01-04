@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SMS.Models.timetable>
+
+@{
+    ViewBag.Title = "Timetable_Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>TIMETABLE</h2>
+
+<p>
+    @Html.ActionLink("Create New Timetable", "Timetable_Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tt_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.room)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.course.couse)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tt_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.room)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.course.couse)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Edit", "Timetable_Edit", new { id=item.tt_id }) |
+            @Html.ActionLink("Details", "Timetable_Details", new { id=item.tt_id }) |
+            @Html.ActionLink("Delete", "Timetable_Delete", new { id=item.tt_id })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to Main Page", "Index2")
+</div>

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<SMS.Models.attendance>
+
+@{
+    ViewBag.Title = "attendance_Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Teacher Attendance</h2>
+
+<p>
+    </p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Attendance1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.teacher.teacher_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.course.couse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.registeration.firstname)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Attendance1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.teacher.teacher_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.course.couse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.registeration.firstname)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "attendance_Edit1", new { id = item.A_id }) |
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to Main Page", "Index2")
+</div>

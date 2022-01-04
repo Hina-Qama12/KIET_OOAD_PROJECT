@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SMS.Models.teacher>
+
+@{
+    ViewBag.Title = "teacher_Profile";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<h2>Teacher Profile</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.teacher_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.teacher_Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.teacher_Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.teacher_password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.course.couse)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in ViewData["list"] as List<SMS.Models.teacher>)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.teacher_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.teacher_Contact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.teacher_Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.teacher_password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.course.couse)
+            </td>
+           
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to Main Page", "Index3")
+</div>

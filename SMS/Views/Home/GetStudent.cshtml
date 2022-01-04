@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SMS.Models.user1>
+
+@{
+    ViewBag.Title = "GetStudent";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Enroll Students</h2>
+
+<p>
+    @Html.ActionLink("Add New Students", "Student_Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Student_Edit", new { id=item.U_id }) |
+            @Html.ActionLink("Details", "Student_Details", new { id=item.U_id }) |
+            @Html.ActionLink("Delete", "Student_Delete", new { id=item.U_id })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to Main Page", "Index2")
+</div>
